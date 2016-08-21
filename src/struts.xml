@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xmi version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+  "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 包配置 -->
+	<package name="default" extends="struts-default">
+		<interceptors>
+			<interceptor name="visitControl" class="filter.VisitControl"></interceptor>
+		</interceptors>
+		<!-- Action配置 -->
+		<action name="login" class="action.Login">
+			<result name="success" type="chain">showTable</result>
+			<result name="error">/login.jsp</result>
+		</action>
+		
+		<action name="regis" class="action.Regis">
+			<result name="success">/login.jsp</result>
+			<result name="error">/regis.jsp</result>
+		</action>
+		
+		<action name="showTable" class="action.ShowTable">
+			<result name="success">/showTable.jsp</result>
+		</action>
+		
+		<action name="loginOut" class="action.LoginOut">
+			<result name="success">/login.jsp</result>
+		</action>
+		
+		<action name="insert" class="action.Insert">
+			<result name="success" type="chain">showTable</result>
+			<result name="error">/addFail.jsp</result>
+		</action>
+		
+		<action name="delete" class="action.Delete">
+			<result name="success" type="chain">showTable</result>
+			<result name="error">/deleteFail.jsp</result>
+		</action>
+		
+		<action name="change" class="action.Change">
+			<result name="success">/showTableChange.jsp</result>
+			<result name="error">/changeFail.jsp</result>
+		</action>
+		
+		<action name="changeOk" class="action.ChangeOk">
+			<result name="success" type="chain">showTable</result>
+			<result name="error">/changeFail.jsp</result>
+		</action>
+		
+		<action name="deletes" class="action.Deletes">
+			<result name="success" type="chain">showTable</result>
+			<result name="error">/deleteFail.jsp</result>
+		</action>
+		
+		<action name="page" class="action.Page">
+			<result name="success">/showTable.jsp</result>
+		</action>
+		
+		<action name="insertOne" class="action.InsertOne">
+			<result name="success" type="chain">showTable</result>
+		</action>
+		
+		<action name="query" class="action.Query">
+			<result name="success">/showQueryTable.jsp</result>
+		</action>
+		
+		<action name="queryPage" class="action.QueryPage">
+			<result name="success">/showQueryTable.jsp</result>
+		</action>
+		
+		<action name="usernameExist" class="action.UsernameExist">
+		</action>
+		
+	</package>
+
+</struts>
